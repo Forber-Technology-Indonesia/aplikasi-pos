@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y nginx
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 # Salin aplikasi ke direktori root Nginx
-COPY src/ /var/www/html/
+COPY test/ /var/www/html/
 
 # Ekspose port yang digunakan oleh Nginx
 EXPOSE 80
