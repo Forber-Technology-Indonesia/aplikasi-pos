@@ -21,10 +21,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'docker stop apache1'
-                        sh 'docker rm apache1'
+                        sh 'docker stop posref1'
+                        sh 'docker rm posref1'
                     } catch (Exception e) {
-                        echo "Container apache1 was not running or could not be stopped/removed: ${e}"
+                        echo "Container posref1 was not running or could not be stopped/removed: ${e}"
                     }
                 }
             }
@@ -33,35 +33,24 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'docker rmi apache_ci'
+                        sh 'docker rmi posref-nginx-service'
                     } catch (Exception e) {
-                        echo "Image apache_ci could not be removed: ${e}"
+                        echo "Image posref-nginx-service could not be removed: ${e}"
                     }
                 }
             }
         }
         stage('Build Docker New Image') {
             steps {
-                dir('whatsappbot-with-gpt') {
-                    sh 'docker build -t apache_ci .'
+                dir('aplikasi-pos') {
+                    sh 'docker build -t posref-nginx-service .'
                 }
             }
         }
         stage('Run New Container') {
             steps {
-                sh 'docker run -d --name apache1  -p 8001:8001 apache_ci'
+                sh 'docker run -d --name posref1  -p 8001:8001 posref-nginx-service'
             }
         }
     }
-    post {
-        always {
-            echo 'This will always run'
-        }
-        success {
-            echo 'This will run only if successful'
-        }
-        failure {
-            echo 'This will run only if failed'
-        }
-    }
 }
