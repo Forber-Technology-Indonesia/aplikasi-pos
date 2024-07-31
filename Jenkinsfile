@@ -17,6 +17,23 @@ pipeline {
                 }
             }
         }
+        stage('Copy .env File') {
+            steps {
+                script {
+                    sh 'cat /mnt/env-aset/posref/development.env'
+                    sh 'cp /mnt/env-aset/posref/development.env aplikasi-pos/.env.development'
+                    sh 'cp /mnt/env-aset/posref/development.env aplikasi-pos/.env.production'
+                    sh 'cat aplikasi-pos/.env.production'
+                }
+            }
+        }
+                stage('Copy vendor File') {
+            steps {
+                script {
+                    sh 'cp -r /mnt/vendor aplikasi-pos/'
+                }
+            }
+        }
         stage('Container Renewal') {
             steps {
                 script {
