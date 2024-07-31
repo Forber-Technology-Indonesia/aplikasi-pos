@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx:
     image: nginx:latest
-    container_name: nginx
+    container_name: posref1
     ports:
       - "8001:80"
     volumes:
