@@ -29,7 +29,7 @@ RUN a2enmod rewrite
 # Salin file konfigurasi Apache
 COPY ./apache-default.conf /etc/apache2/sites-available/000-default.conf
 # Expose port 8001
-EXPOSE 8001
+EXPOSE 80
 
 # Jalankan Apache di foreground
 CMD ["apache2-foreground"]
