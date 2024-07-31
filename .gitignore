@@ -62,7 +62,6 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/windows,codeigniter,visualstudiocode
 *.sql
-database/
 db/
 sess_kopmart/
 db_backup/
