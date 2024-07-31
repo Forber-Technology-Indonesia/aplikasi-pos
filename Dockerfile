@@ -10,20 +10,24 @@ COPY . /var/www/html
 # Menginstal ekstensi PHP yang diperlukan
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Buat direktori writable jika belum ada
+RUN mkdir -p /var/www/html/application/cache \
+    && mkdir -p /var/www/html/application/logs \
+    && mkdir -p /var/www/html/application/sessions
+
 # Setel hak akses untuk folder aplikasi
 RUN chown -R www-data:www-data /var/www/html
 
 # Setel izin untuk folder writable (cache, logs, sessions, dll.)
-RUN chmod -R 775 /var/www/html/application/cache
-RUN chmod -R 775 /var/www/html/application/logs
-RUN chmod -R 775 /var/www/html/application/sessions
+RUN chmod -R 775 /var/www/html/application/cache \
+    && chmod -R 775 /var/www/html/application/logs \
+    && chmod -R 775 /var/www/html/application/sessions
 
 # Konfigurasi Apache
 RUN a2enmod rewrite
 
 # Salin file konfigurasi Apache
 COPY docker/apache-default.conf /etc/apache2/sites-available/000-default.conf
-
 # Expose port 8001
 EXPOSE 8001
 
