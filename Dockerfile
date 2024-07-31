@@ -27,7 +27,7 @@ RUN chmod -R 775 /var/www/html/application/cache \
 RUN a2enmod rewrite
 
 # Salin file konfigurasi Apache
-COPY docker/apache-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./apache-default.conf /etc/apache2/sites-available/000-default.conf
 # Expose port 8001
 EXPOSE 8001
 
