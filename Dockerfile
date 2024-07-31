@@ -5,7 +5,7 @@ FROM nginx:latest
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 # Salin file aplikasi CodeIgniter ke dalam direktori kerja Nginx
-COPY . /usr/share/nginx/html
+COPY /test/. /usr/share/nginx/html
 
 # Expose port yang digunakan oleh Nginx
 EXPOSE 80
