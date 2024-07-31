@@ -24,7 +24,7 @@ pipeline {
                         sh 'docker stop apache1'
                         sh 'docker rm apache1'
                     } catch (Exception e) {
-                        echo "Container apache1was not running or could not be stopped/removed: ${e}"
+                        echo "Container apache1 was not running or could not be stopped/removed: ${e}"
                     }
                 }
             }
@@ -42,14 +42,14 @@ pipeline {
         }
         stage('Build Docker New Image') {
             steps {
-                dir('aplikasi-pos') {
+                dir('whatsappbot-with-gpt') {
                     sh 'docker build -t apache_ci .'
                 }
             }
         }
         stage('Run New Container') {
             steps {
-                sh 'docker run -d --name apache1 -p 8001:8001 apache_ci'
+                sh 'docker run -d --name apache1  -p 8001:8001 apache_ci'
             }
         }
     }
