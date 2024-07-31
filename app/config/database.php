@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'numpang.my.id',
 	'username' => 'forber',
 	'password' => 'forber0@@@',
 	// 'password' => '',
