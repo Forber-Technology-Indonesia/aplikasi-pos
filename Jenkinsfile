@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Run New Container') {
             steps {
-                sh 'docker run -d --name posref1  -p 8001:8001 posref-nginx-service'
+                sh 'docker run -d --name posref1  -p 8001:80 posref-nginx-service'
             }
         }
     }
