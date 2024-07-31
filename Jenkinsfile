@@ -29,10 +29,11 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker New Image') {
+        stage('Compose') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'docker-compose up -d'
+                    sh 'ls -l'
+					 sh 'docker-compose up -d'
                 }
             }
         }
