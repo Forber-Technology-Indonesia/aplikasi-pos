@@ -33,9 +33,9 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'docker rmi posref-nginx-service'
+                        sh 'docker rmi posref-apache-service'
                     } catch (Exception e) {
-                        echo "Image posref-nginx-service could not be removed: ${e}"
+                        echo "Image posref-apache-service could not be removed: ${e}"
                     }
                 }
             }
@@ -43,13 +43,13 @@ pipeline {
         stage('Build Docker New Image') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'docker build -t posref-nginx-service .'
+                    sh 'docker build -t posref-apache-service .'
                 }
             }
         }
         stage('Run New Container') {
             steps {
-                sh 'docker run -d --name posref1  -p 8001:80 posref-nginx-service'
+                sh 'docker run -d --name posref1  -p 8001:80 posref-apache-service'
             }
         }
     }
