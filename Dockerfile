@@ -8,7 +8,7 @@ RUN apt install -y apt-utils
 RUN apt-get install -y git
 #install nano 
 RUN apt-get install -y nano
-COPY ./ /app
+COPY . /app
 
 RUN echo "session.save_path=\"/tmp\"" >> /opt/bitnami/php/lib/php.ini
 
