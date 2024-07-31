@@ -1,8 +1,11 @@
 # Menggunakan image resmi Nginx sebagai parent image
 FROM nginx:latest
 
-# Salin file HTML dan direktori lainnya ke dalam direktori kerja Nginx
-COPY /. /usr/share/nginx/html
+# Salin file konfigurasi Nginx ke dalam container
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+# Salin file aplikasi CodeIgniter ke dalam direktori kerja Nginx
+COPY . /usr/share/nginx/html
 
 # Expose port yang digunakan oleh Nginx
 EXPOSE 80
