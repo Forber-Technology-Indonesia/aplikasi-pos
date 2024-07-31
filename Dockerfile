@@ -5,7 +5,7 @@ FROM php:7.4-apache
 ENV APACHE_DOCUMENT_ROOT /var/www/html
 
 # Salin file aplikasi CodeIgniter ke dalam container
-COPY . /var/www/html
+COPY /test. /var/www/html
 
 # Menginstal ekstensi PHP yang diperlukan
 RUN docker-php-ext-install mysqli pdo pdo_mysql
