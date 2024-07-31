@@ -11,7 +11,7 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
 
 # Salin aplikasi ke direktori root Nginx
-COPY test/ /var/www/html/
+COPY . /var/www/html/
 
 # Ekspose port yang digunakan oleh Nginx
 EXPOSE 80
