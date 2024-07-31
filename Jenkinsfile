@@ -12,7 +12,7 @@ pipeline {
                             sh 'git pull origin main'
                         }
                     } else {
-                        sh 'git clone -b master https://github.com/Forber-Technology-Indonesia/aplikasi-pos.git'
+                        sh 'git clone -b main https://github.com/Forber-Technology-Indonesia/aplikasi-pos.git'
                     }
                 }
             }
