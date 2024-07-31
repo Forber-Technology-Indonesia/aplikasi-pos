@@ -4,8 +4,11 @@ FROM php:7.4-fpm
 # Instal Nginx
 RUN apt-get update && apt-get install -y nginx
 
-# Salin file konfigurasi Nginx
+# Salin file konfigurasi Nginx utama
 COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+# Salin file konfigurasi virtual host
+COPY docker/default.conf /etc/nginx/conf.d/default.conf
 
 # Salin aplikasi ke direktori root Nginx
 COPY test/ /var/www/html/
