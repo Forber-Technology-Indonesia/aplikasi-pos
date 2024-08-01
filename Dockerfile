@@ -1,9 +1,10 @@
 # Base image untuk PHP dengan FPM
 FROM php:7.4-fpm
 
-# Instal library yang diperlukan tanpa apt-get update
-RUN apt-get update \
-	apt-get install -y --no-install-recommends \
+# Ganti repositori dengan mirror alternatif dan instal ekstensi yang diperlukan
+RUN sed -i 's|deb.debian.org|ftp.debian.org|' /etc/apt/sources.list && \
+	sed -i '/security/d' /etc/apt/sources.list && \
+	apt-get update && apt-get install -y \
 	libzip-dev \
 	libpng-dev \
 	libjpeg-dev \
