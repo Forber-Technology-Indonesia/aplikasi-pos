@@ -2,7 +2,8 @@
 FROM php:7.4-fpm
 
 # Instal library yang diperlukan tanpa apt-get update
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update \
+	apt-get install -y --no-install-recommends \
 	libzip-dev \
 	libpng-dev \
 	libjpeg-dev \
