@@ -21,6 +21,9 @@ COPY . /var/www/html/
 # Salin file konfigurasi Nginx
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
+RUN  mkdir /var/www/html/sess_kopmart
+RUN  mkdir /var/www/html/uploads
+RUN  mkdir /var/www/html/assets/barcode
 
 # Expose port 80
 EXPOSE 80
