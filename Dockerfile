@@ -58,7 +58,7 @@ RUN sed -i 's|deb.debian.org|ftp.debian.org|' /etc/apt/sources.list && \
 	libxslt1-dev \
 	libxml2-dev \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
-	&& docker-php-ext-install -j$(nproc) gd mysqli zip pdo pdo_mysql curl fileinfo intl mbstring exif openssl pdo_sqlite \
+	&& docker-php-ext-install -j$(nproc) gd mysqli zip pdo pdo_mysql curl fileinfo intl mbstring openssl \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instal Nginx
