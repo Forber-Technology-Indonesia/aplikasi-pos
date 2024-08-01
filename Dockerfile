@@ -15,6 +15,10 @@ RUN sed -i 's|deb.debian.org|ftp.debian.org|' /etc/apt/sources.list && \
 # Instal Nginx
 RUN apt-get install -y nginx
 
+# Menambahkan konfigurasi session.save_path ke php.ini
+RUN echo 'session.save_path="/tmp"' >> /usr/local/etc/php/conf.d/session.ini
+
+
 # Salin kode aplikasi ke dalam container
 COPY . /var/www/html/
 
