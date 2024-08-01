@@ -13,6 +13,7 @@ RUN sed -i 's|deb.debian.org|ftp.debian.org|' /etc/apt/sources.list && \
 	libcurl4-openssl-dev \
 	libicu-dev \
 	libonig-dev \
+	libxslt1-dev \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd mysqli zip pdo pdo_mysql curl fileinfo intl mbstring exif openssl pdo_mysql pdo_sqlite \
 	&& apt-get clean
