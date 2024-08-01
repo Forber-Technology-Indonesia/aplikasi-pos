@@ -10,7 +10,7 @@ RUN sed -i 's|deb.debian.org|ftp.debian.org|' /etc/apt/sources.list && \
 	libjpeg-dev \
 	libfreetype6-dev \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
-	&& docker-php-ext-install -j$(nproc) gd mysqli zip pdo pdo_mysql \
+	&& docker-php-ext-install -j$(nproc) gd mysqli zip pdo pdo_mysql curl fileinfo intl mbstring exif openssl pdo_mysql pdo_sqlite \
 	&& apt-get clean
 # Instal Nginx
 RUN apt-get install -y nginx
