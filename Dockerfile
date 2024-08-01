@@ -18,8 +18,8 @@ RUN apt-get install -y nginx
 COPY . /var/www/html/
 
 # Salin file konfigurasi Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY docker/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
