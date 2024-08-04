@@ -65,7 +65,7 @@ pipeline {
 		stage('Build Dockercompose') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'ddocker-compose up -d'
+                    sh 'docker-compose up -d'
                 }
 				//nginx
 				// dir('aplikasi-pos') {
