@@ -57,11 +57,11 @@ pipeline {
                 }
             }
         }
-		 stage('Network Check') {
-            steps {
-				sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
-            }
-        }
+		//  stage('Network Check') {
+        //     steps {
+		// 		sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
+        //     }
+        // }
         stage('Build Docker New Image') {
             steps {
                 dir('aplikasi-pos') {
