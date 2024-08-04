@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-                stage('Copy vendor File') {
+        stage('Copy vendor File') {
             steps {
                 script {
                     sh 'cp -r /mnt/vendor aplikasi-pos/'
@@ -55,6 +55,11 @@ pipeline {
                         echo "Image posref-nginx-service could not be removed: ${e}"
                     }
                 }
+            }
+        }
+		 stage('Network Check') {
+            steps {
+				sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
             }
         }
         stage('Build Docker New Image') {
