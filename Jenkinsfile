@@ -62,13 +62,24 @@ pipeline {
 		// 		sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
         //     }
         // }
-        stage('Build Docker New Image') {
+        stage('Build Docker New Image with bitnami') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'docker build -t posref-nginx-service .'
+                    sh 'docker build -t posref-nginx-service /docker/binami/.'
                 }
+				//nginx
+				// dir('aplikasi-pos') {
+                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
+                // }
             }
         }
+		// stage('Build Docker New Image with nginx') {
+        //     steps {               
+		// 		dir('aplikasi-pos') {
+        //             sh 'docker build -t posref-nginx-service /docker/nginx/.'
+        //         }
+        //     }
+        // }
         stage('Run New Container') {
             steps {
                 sh 'docker run -d --name posref1  -p 8001:80 posref-nginx-service'
