@@ -65,7 +65,7 @@ pipeline {
         stage('Build Docker New Image with bitnami') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'docker build -t posref-nginx-service /docker/binami/.'
+                    sh 'docker build -t posref-nginx-service /docker/bitnami/.'
                 }
 				//nginx
 				// dir('aplikasi-pos') {
