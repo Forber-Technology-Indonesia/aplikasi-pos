@@ -62,6 +62,21 @@ pipeline {
 		// 		sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
         //     }
         // }
+
+		//------------
+		stage('Create Folder') {
+            steps {
+                dir('aplikasi-pos') {
+                    sh 'mkdir sess_kopmart'
+                    sh 'mkdir uploads'
+                    sh 'mkdir assets/barcode'
+                }
+				//nginx
+				// dir('aplikasi-pos') {
+                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
+                // }
+            }
+        }
 		stage('Build Dockercompose') {
             steps {
                 dir('aplikasi-pos') {
