@@ -67,9 +67,12 @@ pipeline {
 		stage('Create Folder') {
             steps {
                 dir('aplikasi-pos') {
-                    sh 'mkdir sess_kopmart'
-                    sh 'mkdir uploads'
-                    sh 'mkdir assets/barcode'
+					if (!ileExists('sess_kopmart')) {
+						sh 'mkdir sess_kopmart'
+						sh 'mkdir uploads'
+						sh 'mkdir assets/barcode'
+					}
+                   
                 }
 				//nginx
 				// dir('aplikasi-pos') {
