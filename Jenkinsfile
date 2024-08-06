@@ -57,22 +57,19 @@ pipeline {
                 }
             }
         }
-		// stage('Create Folder') {
-        //     steps {
-        //         dir('aplikasi-pos') {
-		// 			if (!ileExists('sess_kopmart')) {
-		// 				sh 'mkdir sess_kopmart'
-		// 				sh 'mkdir uploads'
-		// 				sh 'mkdir assets/barcode'
-		// 			}
-                   
-        //         }
-		// 		//nginx
-		// 		// dir('aplikasi-pos') {
-        //         //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
-        //         // }
-        //     }
-        // }
+		stage('Create Folder') {
+            steps {
+				script {
+                dir('aplikasi-pos') {
+					if (!ileExists('sess_kopmart')) {
+						sh 'mkdir sess_kopmart'
+						sh 'mkdir uploads'
+						sh 'mkdir assets/barcode'
+						}  
+                	}
+				}
+            }
+        }
 		// stage('Build Dockercompose') {
         //     steps {
         //         dir('aplikasi-pos') {
