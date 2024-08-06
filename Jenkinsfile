@@ -70,16 +70,18 @@ pipeline {
 				}
             }
         }
-		// stage('Build Dockercompose') {
-        //     steps {
-        //         dir('aplikasi-pos') {
-        //             sh 'docker-compose up -d'
-        //         }
-		// 		//nginx
-		// 		// dir('aplikasi-pos') {
-        //         //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
-        //         // }
-        //     }
-        // }
+		stage('Build Dockercompose') {
+            steps {
+				script {
+					dir('aplikasi-pos') {
+						sh 'docker-compose up -d'
+					}
+				}
+				//nginx
+				// dir('aplikasi-pos') {
+                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
+                // }
+            }
+        }
     }
 }
