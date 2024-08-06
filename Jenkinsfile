@@ -61,7 +61,7 @@ pipeline {
             steps {
 				script {
                 dir('aplikasi-pos') {
-					if (!ileExists('sess_kopmart')) {
+					if (!fileExists('sess_kopmart')) {
 						sh 'mkdir sess_kopmart'
 						sh 'mkdir uploads'
 						sh 'mkdir assets/barcode'
