@@ -57,44 +57,15 @@ pipeline {
                 }
             }
         }
-		//  stage('Network Check') {
-        //     steps {
-		// 		sh 'docker run --rm -it php:7.4-fpm sh -c "apt-get update"'
-        //     }
-        // }
-
-		//------------
-		stage('Create Folder') {
-            steps {
-                dir('aplikasi-pos') {
-					if (!ileExists('sess_kopmart')) {
-						sh 'mkdir sess_kopmart'
-						sh 'mkdir uploads'
-						sh 'mkdir assets/barcode'
-					}
-                   
-                }
-				//nginx
-				// dir('aplikasi-pos') {
-                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
-                // }
-            }
-        }
-		stage('Build Dockercompose') {
-            steps {
-                dir('aplikasi-pos') {
-                    sh 'docker-compose up -d'
-                }
-				//nginx
-				// dir('aplikasi-pos') {
-                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
-                // }
-            }
-        }
-        // stage('Build Docker New Image with bitnami') {
+		// stage('Create Folder') {
         //     steps {
         //         dir('aplikasi-pos') {
-        //             sh 'docker build -t posref-nginx-service docker/bitnami/.'
+		// 			if (!ileExists('sess_kopmart')) {
+		// 				sh 'mkdir sess_kopmart'
+		// 				sh 'mkdir uploads'
+		// 				sh 'mkdir assets/barcode'
+		// 			}
+                   
         //         }
 		// 		//nginx
 		// 		// dir('aplikasi-pos') {
@@ -102,16 +73,15 @@ pipeline {
         //         // }
         //     }
         // }
-		// stage('Build Docker New Image with nginx') {
-        //     steps {               
-		// 		dir('aplikasi-pos') {
-        //             sh 'docker build -t posref-nginx-service /docker/nginx/.'
-        //         }
-        //     }
-        // }
-        // stage('Run New Container') {
+		// stage('Build Dockercompose') {
         //     steps {
-        //         sh 'docker run -d --name posref1  -p 8001:80 posref-nginx-service'
+        //         dir('aplikasi-pos') {
+        //             sh 'docker-compose up -d'
+        //         }
+		// 		//nginx
+		// 		// dir('aplikasi-pos') {
+        //         //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
+        //         // }
         //     }
         // }
     }
