@@ -3,7 +3,7 @@ services:
     web: 
         image: ranur/codeigniter:3.12-sessions
         volumes:
-            - .:/app/myapp
+            - ./setup:/app/myapp
         ports:
             - 8001:8000
         depends_on:
