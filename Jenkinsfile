@@ -46,13 +46,13 @@ pipeline {
                 }
             }
         }
-        stage('Image Renewal') {
+        stage('Delete Image') {
             steps {
                 script {
                     try {
-                        sh 'docker rmi posref-nginx-service'
+                        sh 'docker rmi ranur/codeigniter:3.13-sessions'
                     } catch (Exception e) {
-                        echo "Image posref-nginx-service could not be removed: ${e}"
+                        echo "Image ranur/codeigniter:3.13-sessions could not be removed: ${e}"
                     }
                 }
             }
@@ -70,18 +70,32 @@ pipeline {
 				}
             }
         }
+		stage('Renew Image') {
+            steps {
+				script {
+					dir('aplikasi-pos') {
+						sh 'docker build -t ranur/codeigniter:3.13-sessions .'
+						}
+					}
+			}
+		}
 		stage('Build Dockercompose') {
             steps {
 				script {
 					dir('aplikasi-pos') {
 						sh 'docker-compose up -d'
+						}
 					}
-				}
-				//nginx
-				// dir('aplikasi-pos') {
-                //     sh 'docker build -t posref-nginx-service /docker/nginx/.'
-                // }
-            }
-        }
+			}
+		}
+		stage('Push Image') {
+            steps {
+				script {
+					dir('aplikasi-pos') {
+						sh 'docker push ranur/codeigniter:3.13-sessions'
+						}
+					}
+			}
+		}
     }
 }
