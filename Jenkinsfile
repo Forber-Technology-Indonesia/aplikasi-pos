@@ -88,14 +88,14 @@ pipeline {
 					}
 			}
 		}
-		stage('Push Image') {
-            steps {
-				script {
-					dir('aplikasi-pos') {
-						sh 'docker push ranur/codeigniter:3.13-sessions'
-						}
-					}
-			}
-		}
+		// stage('Push Image') {
+        //     steps {
+		// 		script {
+		// 			dir('aplikasi-pos') {
+		// 				sh 'docker push ranur/codeigniter:3.13-sessions'
+		// 				}
+		// 			}
+		// 	}
+		// }
     }
 }
