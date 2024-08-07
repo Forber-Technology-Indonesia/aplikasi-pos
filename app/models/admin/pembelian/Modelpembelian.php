@@ -7,9 +7,9 @@ class Modelpembelian extends CI_Model
         $username = $this->session->userdata('username');
 
         if ($akses == 1) {
-            $sql = $this->db->query("SELECT *,pemasok.`nama` AS namapemasok FROM pembelian JOIN pemasok on pemasok.`id`=pembelian.`idpemasok` WHERE (DATEDIFF(tgljatuhtempo,CURDATE()) BETWEEN 0 AND 3) AND jenisbayar='K' AND statusbayar = 0");
+            $sql = $this->db->query("SELECT *,kontak_pemasok.`nama_pemasok` AS namapemasok FROM pembelian JOIN kontak_pemasok on kontak_pemasok.`id_pemasok`=pembelian.`idpemasok` WHERE (DATEDIFF(tgljatuhtempo,CURDATE()) BETWEEN 0 AND 3) AND jenisbayar='K' AND statusbayar = 0");
         } else {
-            $sql = $this->db->query("SELECT *,pemasok.`nama` AS namapemasok FROM pembelian JOIN pemasok on pemasok.`id`=pembelian.`idpemasok` WHERE (DATEDIFF(tgljatuhtempo,CURDATE()) BETWEEN 0 AND 3) AND jenisbayar='K' AND statusbayar = 0 AND userinput = '$username'");
+            $sql = $this->db->query("SELECT *,kontak_pemasok.`nama_pemasok` AS namapemasok FROM pembelian JOIN kontak_pemasok on kontak_pemasok.`id_pemasok`=pembelian.`idpemasok` WHERE (DATEDIFF(tgljatuhtempo,CURDATE()) BETWEEN 0 AND 3) AND jenisbayar='K' AND statusbayar = 0 AND userinput = '$username'");
         }
 
         return $sql;
