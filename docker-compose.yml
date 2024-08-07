@@ -1,7 +1,7 @@
 version: "3.7"
 services:
     web: 
-        image: ranur/codeigniter:3.11-sessions
+        image: ranur/codeigniter:3.12-sessions
         volumes:
             - .:/app/myapp
         ports:
