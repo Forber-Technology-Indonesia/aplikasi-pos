@@ -8,7 +8,7 @@ class Welcome extends CI_Controller
 		parent::__construct();
 		check_logged_in();
 
-		$this->load->model('Modeltoko');
+		// $this->load->model('Modeltoko');
 		$this->load->model('admin/pembelian/Modelpembelian');
 	}
 	public function index()
